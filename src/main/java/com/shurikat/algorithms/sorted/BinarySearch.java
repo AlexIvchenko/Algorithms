@@ -5,7 +5,11 @@ import java.util.Comparator;
 /**
  * @author Alex Ivchenko
  */
-public class BinarySearch {
+public final class BinarySearch {
+    private BinarySearch() {
+
+    }
+
     public static <T> int search(T[] sorted, T key, Comparator<? super T> cmp) {
         int l = 0;
         int r = sorted.length - 1;
