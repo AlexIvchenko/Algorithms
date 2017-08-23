@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class BinarySearchTest {
     @Test
-    public void givenArrayWithRepeatableKeys_WhenFindFirstPositionOfKey_ThenReturnFirstPositionOfKey() throws Exception {
+    public void givenArrayWithRepeatableKeys_whenFindFirstPositionOfKey_thenReturnFirstPositionOfKey() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 2, 2, 2, 3
         };
@@ -19,7 +19,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenArrayWithRepeatableKeys_WhenFindLastPositionOfKey_ThenReturnLastPositionOfKey() throws Exception {
+    public void givenArrayWithRepeatableKeys_whenFindLastPositionOfKey_thenReturnLastPositionOfKey() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 2, 2, 2, 3
         };
@@ -29,7 +29,7 @@ public class BinarySearchTest {
 
 
     @Test
-    public void givenArrayNotContainsKey_WhenFindKey_ThenReturnMinusOne() throws Exception {
+    public void givenArrayNotContainsKey_whenFindKey_thenReturnMinusOne() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 3
         };
@@ -42,7 +42,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenEmptyArray_WhenFindKey_ThenReturnMinusOne() throws Exception {
+    public void givenEmptyArray_whenFindKey_thenReturnMinusOne() throws Exception {
         Integer[] empty = new Integer[0];
         int anyIndex = BinarySearch.search(empty, 0, naturalOrder());
         int firstIndex = BinarySearch.firstIndex(empty, 0, naturalOrder());
@@ -54,7 +54,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenSingletonArrayWithAKey_WhenFindKey_ThenReturnPositionOfKey() throws Exception {
+    public void givenSingletonArrayWithAKey_whenFindKey_thenReturnPositionOfKey() throws Exception {
         Integer[] singleton = new Integer[] {
                 1
         };
@@ -68,7 +68,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenArrayNotContainsKey_WhenCeiling_ThenReturnPositionOfFirstElementWhichGreaterThanKey() throws Exception {
+    public void givenArrayNotContainsKey_whenCeiling_thenReturnPositionOfFirstElementWhichGreaterThanKey() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 2, 2, 2, 4
         };
@@ -77,7 +77,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenArrayNotContainsKeyAndAllElementsLessThanKey_WhenCeiling_ThenReturnSizeOfArray() throws Exception {
+    public void givenArrayNotContainsKeyAndAllElementsLessThanKey_whenCeiling_thenReturnSizeOfArray() throws Exception {
         Integer[] sorted = new Integer[] {
                 2, 3
         };
@@ -86,7 +86,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenArrayNotContainsKey_WhenFloor_ThenReturnPositionOfLastElementWhichLessThanKey() throws Exception {
+    public void givenArrayNotContainsKey_whenFloor_thenReturnPositionOfLastElementWhichLessThanKey() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 2, 2, 2, 4
         };
@@ -95,7 +95,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void givenArrayNotContainsKeyAndAllElementsGreaterThanKey_WhenFloor_ThenReturnMinusOne() throws Exception {
+    public void givenArrayNotContainsKeyAndAllElementsGreaterThanKey_whenFloor_thenReturnMinusOne() throws Exception {
         Integer[] sorted = new Integer[] {
                 2, 3
         };
