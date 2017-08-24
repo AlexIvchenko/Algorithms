@@ -102,4 +102,16 @@ public class BinarySearchTest {
         int floor = BinarySearch.floor(sorted, 1, naturalOrder());
         assertEquals(-1, floor);
     }
+
+    @Test
+    public void givenCreatingBinarySearchObjectFromUnsortedIntArray_whenFind_thenReturnIndexInSortedArray() throws Exception {
+        BinarySearch<Integer> sorted = BinarySearch.from(new int[] {4, 3, 3, 2});
+        assertEquals(0, sorted.search(2));
+        assertEquals(1, sorted.firstIndex(3));
+        assertEquals(2, sorted.lastIndex(3));
+        assertEquals(0, sorted.floor(2));
+        assertEquals(3, sorted.ceiling(4));
+        int elem = sorted.get(1);
+        assertEquals(3, elem);
+    }
 }
