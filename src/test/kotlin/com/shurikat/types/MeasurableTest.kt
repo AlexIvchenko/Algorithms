@@ -1,6 +1,5 @@
-package com.shurikat.algorithms.types
+package com.shurikat.types
 
-import com.shurikat.types.Measurable
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
