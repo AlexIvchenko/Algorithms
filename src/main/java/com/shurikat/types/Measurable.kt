@@ -4,6 +4,33 @@ package com.shurikat.types
  * @author Alex Ivchenko
  */
 class Measurable<T : Comparable<T>> private constructor(public val value: T?, private val state: State) : Comparable<Measurable<T>> {
+    companion object {
+        fun <P : Comparable<P>> of(priority: P): Measurable<P> {
+            return Measurable(priority, State.NORMAL)
+        }
+
+        fun <P : Comparable<P>> posInfinity(): Measurable<P> {
+            return Measurable(null, State.POS_INFINITY)
+        }
+
+        fun <P : Comparable<P>> negInfinity(): Measurable<P> {
+            return Measurable(null, State.NEG_INFINITY)
+        }
+    }
+
+    override fun compareTo(other: Measurable<T>): Int {
+        if (state == other.state && state != State.NORMAL) {
+            return 0
+        }
+        if (this.state == State.POS_INFINITY || other.state == State.NEG_INFINITY) {
+            return 1
+        }
+        if (this.state == State.NEG_INFINITY || other.state == State.POS_INFINITY) {
+            return -1
+        }
+        return this.value!!.compareTo(other.value!!)
+    }
+
     private enum class State {
         POS_INFINITY, NEG_INFINITY, NORMAL;
 
@@ -19,19 +46,6 @@ class Measurable<T : Comparable<T>> private constructor(public val value: T?, pr
             }
             throw UnsupportedOperationException("method toString is not supported for ${this.name}")
         }
-    }
-
-    override fun compareTo(other: Measurable<T>): Int {
-        if (state == other.state && state != State.NORMAL) {
-            return 0
-        }
-        if (this.state == State.POS_INFINITY || other.state == State.NEG_INFINITY) {
-            return 1
-        }
-        if (this.state == State.NEG_INFINITY || other.state == State.POS_INFINITY) {
-            return -1
-        }
-        return this.value!!.compareTo(other.value!!)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -50,20 +64,6 @@ class Measurable<T : Comparable<T>> private constructor(public val value: T?, pr
         var result = value?.hashCode() ?: 0
         result = 31 * result + state.hashCode()
         return result
-    }
-
-    companion object {
-        fun <P : Comparable<P>> of(priority: P): Measurable<P> {
-            return Measurable(priority, State.NORMAL)
-        }
-
-        fun <P : Comparable<P>> posInfinity(): Measurable<P> {
-            return Measurable(null, State.POS_INFINITY)
-        }
-
-        fun <P : Comparable<P>> negInfinity(): Measurable<P> {
-            return Measurable(null, State.NEG_INFINITY)
-        }
     }
 
     override fun toString(): String {

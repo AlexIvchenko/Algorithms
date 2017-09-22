@@ -15,6 +15,7 @@ class MeasurableTest {
         val normal2 = Measurable.of(1)
         assertTrue { normal1 == normal2 }
         assertTrue { normal2 == normal1 }
+        assertEquals(0, normal1.compareTo(normal2))
     }
 
     @Test
@@ -23,7 +24,7 @@ class MeasurableTest {
         val pos2 = Measurable.posInfinity<Int>()
         assertTrue { pos1 == pos2 }
         assertTrue { pos1 == pos2 }
-        assertTrue { pos1.compareTo(pos2) == 0 }
+        assertEquals(0, pos1.compareTo(pos2))
     }
 
     @Test
