@@ -23,7 +23,7 @@ To try this in maven project just insert this into your pom.xml
     - ceiling
     - floor
 # Data Structures
-  - SumSQRTDecomposition which provide the following operations with int array
+  - SumSQRTDecomposition which provides the following operations with int array
     - computing sum on segment in O(sqrt(n))
     - change value by index in O(1)
     - increase all values on segment in O(sqrt(n))
