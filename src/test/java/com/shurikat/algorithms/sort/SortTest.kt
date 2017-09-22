@@ -14,6 +14,10 @@ class SelectionSortTest : SortTest(SelectionSort)
 
 class QuickSortTest : SortTest(QuickSort)
 
+class AnotherQuickSortTest : SortTest(AnotherQuickSort)
+
+class MergeQuickSort : SortTest(MergeSort)
+
 abstract class SortTest(private val sorter: Sorter) {
     @Test
     fun givenEmptyArray_WhenSort_thenNoExceptions() {
