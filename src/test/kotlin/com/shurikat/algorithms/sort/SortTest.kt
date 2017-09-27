@@ -16,7 +16,9 @@ class QuickSortTest : SortTest(QuickSort)
 
 class AnotherQuickSortTest : SortTest(AnotherQuickSort)
 
-class MergeQuickSort : SortTest(MergeSort)
+class MergeSortTest : SortTest(MergeSort)
+
+class KormenQuickSortTest : SortTest(KormenQuickSort)
 
 abstract class SortTest(private val sorter: Sorter) {
     @Test
