@@ -132,6 +132,33 @@ object AnotherQuickSort : Sorter {
     }
 }
 
+object KormenQuickSort : Sorter {
+    override fun <T : Comparable<T>> sort(a: Array<T>) {
+        quickSort(a, 0, a.size - 1)
+    }
+
+    private fun <T : Comparable<T>> quickSort(a: Array<T>, l: Int, r: Int) {
+        if (l >= r) {
+            return
+        }
+        val p = partition(a, l, r)
+        quickSort(a, l, p - 1)
+        quickSort(a, p + 1, r)
+    }
+
+    private fun <T : Comparable<T>> partition(a: Array<T>, l: Int, r: Int): Int {
+        val pivot = a[r]
+        var i = l - 1
+        for (j in l until r) {
+            if (a[j] <= pivot) {
+                a.swap(++i, j)
+            }
+        }
+        a.swap(++i, r)
+        return i
+    }
+}
+
 private fun <T> Array<T>.swap(i: Int, j: Int) {
     val tmp = this[i]
     this[i] = this[j]
