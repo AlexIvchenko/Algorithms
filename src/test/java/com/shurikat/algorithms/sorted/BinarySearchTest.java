@@ -10,6 +10,17 @@ import static org.junit.Assert.assertEquals;
  */
 public class BinarySearchTest {
     @Test
+    public void givenArray_whenFindFirstPositionOfSmallestKey_thenReturnZero() throws Exception {
+        Integer[] sorted = new Integer[] {
+                1, 2, 2, 2, 3
+        };
+        int firstIndex = BinarySearch.firstIndex(sorted, 1, naturalOrder());
+        int lastIndex = BinarySearch.lastIndex(sorted, 1, naturalOrder());
+        assertEquals(0, firstIndex);
+        assertEquals(0, lastIndex);
+    }
+
+    @Test
     public void givenArrayWithRepeatableKeys_whenFindFirstPositionOfKey_thenReturnFirstPositionOfKey() throws Exception {
         Integer[] sorted = new Integer[] {
                 1, 2, 2, 2, 3
